@@ -1,6 +1,11 @@
+const express = require('express');
 var Twit = require("twit");
 require('dotenv').config();
+const app = express();
 
+app.get('/', (req, res) => {
+    res.send("Yeah ✨ It's working ⚡");
+});
 
 var Twitter = new Twit({
     consumer_key: process.env.CONSUMER_KEY,
@@ -44,3 +49,7 @@ favoriteTweet();
 setInterval(() => {
     favoriteTweet();
 }, 900000);
+
+app.listen(process.env.PORT, () => {
+    console.log("starting.............................");
+});
