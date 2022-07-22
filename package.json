@@ -11,6 +11,6 @@
   "description": "",
   "dependencies": {
     "twit": "^2.2.11",
-    "dotenv": "16.0.1"
+    "dotenv": "^16.0.1"
   }
 }
