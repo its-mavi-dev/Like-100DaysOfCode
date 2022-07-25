@@ -18,10 +18,10 @@ var Twitter = new Twit({
 
 var favoriteTweet = function () {
     var params = {
-        q: "#100DaysOfCode day",
+        q: "#100DaysOfCode day -RT",
         result_type: "recent",
         lang: "en",
-        count: 50,
+        count: 100,
     };
 
     Twitter.get("search/tweets", params, function (err, data) {
@@ -35,7 +35,7 @@ var favoriteTweet = function () {
                         if (err) {
                             console.log(err);
                         } else {
-                            console.log(data.text + " has been liked.");
+                            console.log(`https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`);
                         }
                     }
                 );
@@ -48,7 +48,7 @@ favoriteTweet();
 
 setInterval(() => {
     favoriteTweet();
-}, 900000);
+}, 600000);
 
 app.listen(process.env.PORT, () => {
     console.log("starting.............................");
